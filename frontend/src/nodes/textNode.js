@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
+import { useUpdateNodeInternals } from "reactflow"
 import BaseNode from "./BaseNode"
 
 export const TextNode = ({ id }) => {
+  const updateNodeInternals = useUpdateNodeInternals()
   const [text, setText] = useState("")
   const [variables, setVariables] = useState([])
   const [dimensions, setDimensions] = useState({
@@ -16,6 +18,10 @@ export const TextNode = ({ id }) => {
     const vars = [...new Set(matches.map((v) => v[1]))]
     setVariables(vars)
   }, [text])
+
+  useEffect(() => {
+    updateNodeInternals(id)
+  }, [variables, id, updateNodeInternals])
 
   useEffect(() => {
     const lines = text.split("\n")
@@ -36,7 +42,7 @@ export const TextNode = ({ id }) => {
   return (
     <BaseNode
       title="Text"
-      inputs={variables.map((v) => `${id}-${v}`)}
+      inputs={variables.length > 0 ? variables.map((v) => `${id}-${v}`) : [`${id}-in`]}
       outputs={[`${id}-out`]}
       style={{
         minWidth: dimensions.width,

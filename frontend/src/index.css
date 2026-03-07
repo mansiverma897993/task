@@ -117,25 +117,33 @@ code {
 }
 
 
-/* Node connection handles – visible and easy to drag (n8n-style) */
+/* Node connection handles – visible, on top, easy to drag (n8n-style) */
 .react-flow__handle {
-  width: 14px !important;
-  height: 14px !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
   border-radius: 50% !important;
-  border: 2px solid rgba(59, 130, 246, 0.9) !important;
-  background: rgba(15, 23, 42, 0.95) !important;
-  opacity: 1;
+  border: 2px solid rgba(59, 130, 246, 0.95) !important;
+  background: rgba(30, 58, 138, 0.9) !important;
+  opacity: 1 !important;
+  z-index: 10 !important;
+  pointer-events: all !important;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .react-flow__handle:hover {
-  transform: scale(1.25);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.35);
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.5) !important;
 }
 .react-flow__handle.react-flow__handle-left {
-  left: -7px;
+  left: -8px !important;
 }
 .react-flow__handle.react-flow__handle-right {
-  right: -7px;
+  right: -8px !important;
+}
+.react-flow__node {
+  pointer-events: all;
 }
 .react-flow__connectionline path {
   stroke: rgba(59, 130, 246, 0.9);

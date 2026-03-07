@@ -37,13 +37,20 @@ export const useStore = create((set, get) => ({
     },
     onConnect: (connection) => {
       if (connection.source === connection.target) return;
+      const edges = get().edges;
+      const same = (e) =>
+        e.source === connection.source &&
+        e.target === connection.target &&
+        (e.sourceHandle ?? null) === (connection.sourceHandle ?? null) &&
+        (e.targetHandle ?? null) === (connection.targetHandle ?? null);
+      if (edges.some(same)) return;
       set({
         edges: addEdge({
           ...connection,
           type: 'default',
           animated: true,
           markerEnd: { type: MarkerType.Arrow, height: 20, width: 20 },
-        }, get().edges),
+        }, edges),
       });
     },
     updateNodeField: (nodeId, fieldName, fieldValue) => {

@@ -171,6 +171,9 @@ export const PipelineUI = () => {
             onInit={setReactFlowInstance}
             isValidConnection={isValidConnection}
             connectOnClick={false}
+            nodesConnectable={true}
+            elementsSelectable={true}
+            connectionLineStyle={{ stroke: 'rgba(59, 130, 246, 0.9)', strokeWidth: 2 }}
             nodeTypes={nodeTypes}
             proOptions={proOptions}
             snapGrid={[gridSize, gridSize]}
