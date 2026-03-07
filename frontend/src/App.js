@@ -19,13 +19,13 @@ function App() {
 
   return (
     <div className="app-shell">
-      <PipelineToolbar />
-      <PipelineUI />
-      <div className="submit-shell">
+      <header className="app-top-bar">
+        <PipelineToolbar />
         <button className="submit-button" onClick={handleSubmit}>
           Submit Pipeline
         </button>
-      </div>
+      </header>
+      <PipelineUI />
     </div>
   )
 }

@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 import { useState, useRef, useCallback } from 'react';
-import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
+import ReactFlow, { Controls, Background, MiniMap, ConnectionLineType } from 'reactflow';
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
 import { InputNode } from './nodes/inputNode';
@@ -98,6 +98,11 @@ export const PipelineUI = () => {
         event.dataTransfer.dropEffect = 'move';
     }, []);
 
+    const isValidConnection = useCallback((connection) => {
+        if (connection.source === connection.target) return false;
+        return true;
+    }, []);
+
     return (
       <>
         <div
@@ -118,13 +123,16 @@ export const PipelineUI = () => {
             onDrop={onDrop}
             onDragOver={onDragOver}
             onInit={setReactFlowInstance}
+            isValidConnection={isValidConnection}
+            connectOnClick={false}
             nodeTypes={nodeTypes}
             proOptions={proOptions}
             snapGrid={[gridSize, gridSize]}
-            connectionLineType="smoothstep"
+            connectionLineType={ConnectionLineType.Bezier}
+            defaultEdgeOptions={{ type: 'default' }}
           >
             <Background color="#1f2937" gap={gridSize} />
-            <Controls />
+            <Controls position="bottom-left" />
             <MiniMap
               style={{ backgroundColor: "rgba(15,23,42,0.95)", borderRadius: 12 }}
               nodeColor="#3b82f6"

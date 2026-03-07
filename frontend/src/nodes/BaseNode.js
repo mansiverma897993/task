@@ -49,7 +49,8 @@ export default function BaseNode({
           type="target"
           position={Position.Left}
           id={id}
-          style={{ top: 44 + i * 22, width: 10, height: 10, borderRadius: 999 }}
+          style={{ top: 44 + i * 22 }}
+          className="node-handle node-handle--target"
         />
       ))}
 
@@ -61,7 +62,8 @@ export default function BaseNode({
           type="source"
           position={Position.Right}
           id={id}
-          style={{ top: 44 + i * 22, width: 10, height: 10, borderRadius: 999 }}
+          style={{ top: 44 + i * 22 }}
+          className="node-handle node-handle--source"
         />
       ))}
     </motion.div>
