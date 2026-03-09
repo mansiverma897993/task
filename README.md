@@ -61,6 +61,35 @@ Key tasks:
 - Ensure the pipeline is a **Directed Acyclic Graph (DAG)**
 
 ---
+ # How to start :
+#1️⃣ Clone the Repository
+git clone https://github.com/<your-username>/assessment.git<br>
+cd assessment<br>
+#2️⃣ Run the Frontend <br>
+Navigate to the frontend directory: <br>
+cd frontend<br>
+Install dependencies:<br>
+npm install<br>
+Start the React development server:<br>
+npm start<br>
+#The frontend will start at:
+http://localhost:3000
+---
+
+#3️⃣ Run the Backend
+Open a new terminal and navigate to the backend directory:
+cd backend
+Install backend dependencies:<br>
+pip install -r requirements.txt<br>
+Start the FastAPI server:<br>
+python3 -m uvicorn main:app --reload<br>
+The backend will start at:<br>
+http://127.0.0.1:8000 <br>
+Test the backend by opening: <br>
+http://127.0.0.1:8000<br>
+
+#You should see:
+{"Ping":"Pong"}
 
 # Example Pipeline
 
