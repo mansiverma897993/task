@@ -33,16 +33,16 @@ The backend parses the pipeline graph and ensures that it **does not contain cir
 ---
 
 # Architecture
-Frontend (React + ReactFlow)
-│
-│ Pipeline JSON (nodes + edges)
-▼
-Backend (FastAPI)
-│
-│ Graph Parsing
-│ Cycle Detection
-▼
-Validation Result
+Frontend (React + ReactFlow) <br>
+             │<br>
+│ Pipeline JSON (nodes + edges) <br>
+▼<br>
+Backend (FastAPI) <br>
+│<br>
+│ Graph Parsing<br>
+│ Cycle Detection<br>
+▼<br>
+Validation Result<br>
 
 
 ---
