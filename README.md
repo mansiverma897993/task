@@ -1,4 +1,4 @@
-# AI Pipeline Builder
+# Roow : AI Pipeline Builder
 
 A **visual pipeline builder for AI workflows** that allows users to construct workflows by connecting nodes in a graphical interface.
 
